@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Extensions by TheDarkCode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Extensions</h1>
+      <h2 class="project-tagline">Cocoapod of useful extensions written in Swift 2.2.</h2>
+      <a href="https://github.com/TheDarkCode/Extensions" class="btn">View on GitHub</a>
+      <a href="https://github.com/TheDarkCode/Extensions/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/TheDarkCode/Extensions/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="extensions" class="anchor" href="#extensions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extensions</h1>
+
+<p>Cocoapod of useful extensions written in Swift 2.2.</p>
+
+<h2>
+<a id="example-extension-usage" class="anchor" href="#example-extension-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example Extension Usage</h2>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-c">/// Value Type Extensions</span>
+<span class="pl-k">var</span> str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello, playground<span class="pl-pds">"</span></span>
+
+str<span class="pl-k">.</span><span class="pl-k">subscript</span>(range) <span class="pl-c">// returns substring of range</span>
+
+str<span class="pl-k">.</span><span class="pl-k">subscript</span>(index) <span class="pl-c">// returns character at index</span>
+
+str<span class="pl-k">.</span>toUnicodeArray() <span class="pl-c">// [72, 101, 108, 108, 111, 44, 32, 112, 108, 97, 121, 103, 114, 111, 117, 110, 100]</span>
+
+str<span class="pl-k">.</span>toUnicodeArray()[<span class="pl-c1">0</span>]<span class="pl-k">.</span>toChar() <span class="pl-c">// "H"</span>
+
+str<span class="pl-k">.</span>toUnicodeArray()<span class="pl-k">.</span>toString() <span class="pl-c">// "Hello, playground"</span>
+
+str<span class="pl-k">.</span><span class="pl-c1">length</span>() <span class="pl-c">// 17</span>
+
+<span class="pl-k">var</span> int: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>
+
+int<span class="pl-k">.</span>add(<span class="pl-c1">2</span>) <span class="pl-c">// 2</span>
+
+<span class="pl-c">/// UITableView Extensions</span>
+<span class="pl-k">var</span> tableView: UITableView
+
+tableView<span class="pl-k">.</span>animateData() <span class="pl-c">// reloads data and animates load</span>
+tableView<span class="pl-k">.</span>animateData(<span class="pl-c1">1</span><span class="pl-k">.</span><span class="pl-c1">0</span>, delayOffset: <span class="pl-c1">0</span><span class="pl-k">.</span><span class="pl-c1">05</span>, usingSpringWithDamping: <span class="pl-c1">0</span><span class="pl-k">.</span><span class="pl-c1">75</span>, initialSpringVelocity: <span class="pl-c1">0</span>) <span class="pl-c">// reloads data and animates</span>
+
+<span class="pl-c">/// UIView Extensions</span>
+IBInspectable <span class="pl-k">for</span> cornerRadius
+
+<span class="pl-c">/// Delay Extension</span>
+<span class="pl-k">var</span> object: NSObject
+
+object<span class="pl-k">.</span>delay(<span class="pl-c1">2</span>) {
+ <span class="pl-c">// do something after 2 seconds</span>
+}
+
+delay(<span class="pl-c1">2</span>) {
+ <span class="pl-c">// do something after 2 seconds</span>
+}
+
+<span class="pl-c">/// Binary Search Extensions (all use throws)</span>
+<span class="pl-k">func</span> <span class="pl-en">binarySearch</span>(collection: [T], query: T) throws <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
+<span class="pl-k">func</span> <span class="pl-en">binarySearchPrefix</span>(collection: [<span class="pl-c1">String</span>], query: <span class="pl-c1">String</span>) throws <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
+<span class="pl-k">func</span> <span class="pl-en">binarySearchFirst</span>(collection: [<span class="pl-c1">String</span>], query: <span class="pl-c1">String</span>) throws <span class="pl-k">-&gt;</span> <span class="pl-c1">Int</span>
+<span class="pl-k">func</span> <span class="pl-en">binarySearchLast</span>(collection: [<span class="pl-c1">String</span>], query: <span class="pl-c1">String</span>) throws <span class="pl-k">-&gt;</span> <span class="pl-c1">Int</span>
+
+<span class="pl-c">/// Array2D Struct</span>
+Array2D(columns: <span class="pl-c1">Int</span>, rows: <span class="pl-c1">Int</span>)
+Array2D<span class="pl-k">.</span><span class="pl-k">subscript</span>(column: <span class="pl-c1">Int</span>, row: <span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Int</span>
+Array2D<span class="pl-k">.</span>columnCount()
+Array2D<span class="pl-k">.</span>rowCount()</pre></div>
+
+<h2>
+<a id="cocoapods" class="anchor" href="#cocoapods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CocoaPods</h2>
+
+<p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ gem install cocoapods</pre></div>
+
+<blockquote>
+<p>CocoaPods 0.39.0+ is required to build Extensions 0.0.1+.</p>
+</blockquote>
+
+<p>To integrate Extensions into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+
+<div class="highlight highlight-source-ruby"><pre>source <span class="pl-s"><span class="pl-pds">'</span>https://github.com/CocoaPods/Specs.git<span class="pl-pds">'</span></span>
+platform <span class="pl-c1">:ios</span>, <span class="pl-s"><span class="pl-pds">'</span>8.0<span class="pl-pds">'</span></span>
+use_frameworks!
+
+pod <span class="pl-s"><span class="pl-pds">'</span>Extensions<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>~&gt; 0.0.1<span class="pl-pds">'</span></span></pre></div>
+
+<p>Then, run the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ pod install</pre></div>
+
+<h2>
+<a id="related-projects" class="anchor" href="#related-projects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Related Projects:</h2>
+
+<h3>
+<a id="example-swift-apps-by-mark-hamilton-dryverless" class="anchor" href="#example-swift-apps-by-mark-hamilton-dryverless" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example Swift Apps by Mark Hamilton, Dryverless</h3>
+
+<p>Collection of example applications written in Swift / Objective-C for iOS 9.x (developed under 9.2.1 SDK - will be migrated to 9.3 when released)</p>
+
+<h6>
+<a id="httpsgithubcomthedarkcodeexample-swift-apps" class="anchor" href="#httpsgithubcomthedarkcodeexample-swift-apps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/TheDarkCode/Example-Swift-Apps">https://github.com/TheDarkCode/Example-Swift-Apps</a>
+</h6>
+
+<h2>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support:</h2>
+
+<h5>
+<a id="send-any-questions-or-requests-to-supportdryverlesscom" class="anchor" href="#send-any-questions-or-requests-to-supportdryverlesscom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Send any questions or requests to: <a href="mailto:support@dryverless.com">support@dryverless.com</a>
+</h5>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ul>
+<li>1) Fork this repository!</li>
+<li>2) Create your feature branch: <code>git checkout -b Your-New-Feature</code>
+</li>
+<li>3) Commit your changes: <code>git commit -am 'Adding some super awesome update'</code>
+</li>
+<li>4) Push to the branch: <code>git push origin Your-New-Feature</code>
+</li>
+<li>5) Submit a pull request!</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright (c) 2016 Mark Hamilton / dryverless (<a href="http://www.dryverless.com">http://www.dryverless.com</a>)</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/TheDarkCode/Extensions">Extensions</a> is maintained by <a href="https://github.com/TheDarkCode">TheDarkCode</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
