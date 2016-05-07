@@ -1,5 +1,5 @@
 # Extensions
-Cocoapod of useful extensions written in Swift 2.2.
+Cocoapod of useful extensions written in Swift 2.x.
 
 ##Example Extension Usage
 
@@ -17,7 +17,7 @@ str.toUnicodeArray()[0].toChar() // "H"
 
 str.toUnicodeArray().toString() // "Hello, playground"
 
-str.length() // 17
+str.length() // 17 (changing in update)
 
 var int: Int = 0
 
