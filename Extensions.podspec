@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Extensions"
-  s.version          = "0.0.1"
+  s.version          = "0.1.0"
   s.summary          = "Cocoapod of useful extensions written in Swift 2.2."
   s.homepage         = "https://github.com/TheDarkCode/Extensions"
   s.license          = 'MIT'
