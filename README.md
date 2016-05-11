@@ -17,7 +17,7 @@ str.toUnicodeArray()[0].toChar() // "H"
 
 str.toUnicodeArray().toString() // "Hello, playground"
 
-str.length() // 17 (changing in update)
+str.length // 17 :: .length() in v0.0.1
 
 var int: Int = 0
 
@@ -54,6 +54,50 @@ Array2D(columns: Int, rows: Int)
 Array2D.subscript(column: Int, row: Int) -> Int
 Array2D.columnCount()
 Array2D.rowCount()
+
+/// App Utils
+AppDisplayName() -> String?
+AppVersion() -> String?
+AppBuildNumber() -> String?
+AppBuildVersion() -> String?
+DeviceVersion() -> String?
+DetectScreenshot(completion: ()-> ())
+IsDebug() -> Bool
+IsRelease() -> Bool
+IsSimulator() -> Bool
+IsDevice() -> Bool
+
+/// Device Feedback Utils
+vibrate()
+
+// NSBundle Extensions
+.loadNib(name: String, owner: AnyObject!)
+.loadNib<T>(name: String) -> T?
+
+/// UIAlertController Extensions
+.show() // Use RootViewController() to display alert
+.showWithCompletion(completion: () -> Void) // Use RootViewController() to display alert with completion
+alert.showWithCompletion() {
+	
+	// do something on completion
+
+}
+.setVisible // On set true it shows using RootViewController()
+
+/// UIAlert Utils
+showErrorAlert(description: String, error: NSError?, sender: UIViewController)
+showErrorAlertUsingRoot(description: String, error: NSError?)
+
+/// View Controller Utils
+RootViewController() -> UIViewController? // Returns RootViewController in keyWindow
+ScreenOrientation() -> UIInterfaceOrientation
+HorizontalSizeClass() -> UIUserInterfaceSizeClass
+VerticalSizeClass() -> UIUserInterfaceSizeClass
+ScreenWidth() -> CGFloat
+ScreenHeight() -> CGFloat
+ScreenBounds() -> CGRect
+StatusBarHeight() -> CGFloat
+ScreenHeightMinusStatusBar() -> CGFloat
 ```
 
 ##CocoaPods
@@ -73,7 +117,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Extensions', '~> 0.0.1'
+pod 'Extensions', '~> 0.1'
 ```
 
 Then, run the following command:
