@@ -22,7 +22,7 @@
       <h1>
 <a id="extensions" class="anchor" href="#extensions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extensions</h1>
 
-<p>Cocoapod of useful extensions written in Swift 2.2.</p>
+<p>Cocoapod of useful extensions written in Swift 2.x.</p>
 
 <h2>
 <a id="example-extension-usage" class="anchor" href="#example-extension-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example Extension Usage</h2>
@@ -40,7 +40,7 @@ str<span class="pl-k">.</span>toUnicodeArray()[<span class="pl-c1">0</span>]<spa
 
 str<span class="pl-k">.</span>toUnicodeArray()<span class="pl-k">.</span>toString() <span class="pl-c">// "Hello, playground"</span>
 
-str<span class="pl-k">.</span><span class="pl-c1">length</span>() <span class="pl-c">// 17</span>
+str<span class="pl-k">.</span><span class="pl-c1">length</span> <span class="pl-c">// 17 :: .length() in v0.0.1</span>
 
 <span class="pl-k">var</span> int: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>
 
@@ -76,7 +76,51 @@ delay(<span class="pl-c1">2</span>) {
 Array2D(columns: <span class="pl-c1">Int</span>, rows: <span class="pl-c1">Int</span>)
 Array2D<span class="pl-k">.</span><span class="pl-k">subscript</span>(column: <span class="pl-c1">Int</span>, row: <span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Int</span>
 Array2D<span class="pl-k">.</span>columnCount()
-Array2D<span class="pl-k">.</span>rowCount()</pre></div>
+Array2D<span class="pl-k">.</span>rowCount()
+
+<span class="pl-c">/// App Utils</span>
+AppDisplayName() <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>?
+AppVersion() <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>?
+AppBuildNumber() <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>?
+AppBuildVersion() <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>?
+DeviceVersion() <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>?
+DetectScreenshot(completion: ()-&gt; ())
+IsDebug() <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
+IsRelease() <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
+IsSimulator() <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
+IsDevice() <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
+
+<span class="pl-c">/// Device Feedback Utils</span>
+vibrate()
+
+<span class="pl-c">// NSBundle Extensions</span>
+<span class="pl-k">.</span>loadNib(name: <span class="pl-c1">String</span>, owner: <span class="pl-c1">AnyObject</span><span class="pl-k">!</span>)
+<span class="pl-k">.</span>loadNib<span class="pl-k">&lt;</span>T<span class="pl-k">&gt;</span>(name: <span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> T?
+
+<span class="pl-c">/// UIAlertController Extensions</span>
+<span class="pl-k">.</span>show() <span class="pl-c">// Use RootViewController() to display alert</span>
+<span class="pl-k">.</span>showWithCompletion(completion: () <span class="pl-k">-&gt;</span> <span class="pl-c1">Void</span>) <span class="pl-c">// Use RootViewController() to display alert with completion</span>
+alert<span class="pl-k">.</span>showWithCompletion() {
+
+    <span class="pl-c">// do something on completion</span>
+
+}
+<span class="pl-k">.</span>setVisible <span class="pl-c">// On set true it shows using RootViewController()</span>
+
+<span class="pl-c">/// UIAlert Utils</span>
+showErrorAlert(description: <span class="pl-c1">String</span>, error: NSError?, sender: UIViewController)
+showErrorAlertUsingRoot(description: <span class="pl-c1">String</span>, error: NSError?)
+
+<span class="pl-c">/// View Controller Utils</span>
+RootViewController() <span class="pl-k">-&gt;</span> UIViewController? <span class="pl-c">// Returns RootViewController in keyWindow</span>
+ScreenOrientation() <span class="pl-k">-&gt;</span> UIInterfaceOrientation
+HorizontalSizeClass() <span class="pl-k">-&gt;</span> UIUserInterfaceSizeClass
+VerticalSizeClass() <span class="pl-k">-&gt;</span> UIUserInterfaceSizeClass
+ScreenWidth() <span class="pl-k">-&gt;</span> CGFloat
+ScreenHeight() <span class="pl-k">-&gt;</span> CGFloat
+ScreenBounds() <span class="pl-k">-&gt;</span> CGRect
+StatusBarHeight() <span class="pl-k">-&gt;</span> CGFloat
+ScreenHeightMinusStatusBar() <span class="pl-k">-&gt;</span> CGFloat</pre></div>
 
 <h2>
 <a id="cocoapods" class="anchor" href="#cocoapods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CocoaPods</h2>
@@ -95,7 +139,7 @@ Array2D<span class="pl-k">.</span>rowCount()</pre></div>
 platform <span class="pl-c1">:ios</span>, <span class="pl-s"><span class="pl-pds">'</span>8.0<span class="pl-pds">'</span></span>
 use_frameworks!
 
-pod <span class="pl-s"><span class="pl-pds">'</span>Extensions<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>~&gt; 0.0.1<span class="pl-pds">'</span></span></pre></div>
+pod <span class="pl-s"><span class="pl-pds">'</span>Extensions<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>~&gt; 0.1<span class="pl-pds">'</span></span></pre></div>
 
 <p>Then, run the following command:</p>
 
